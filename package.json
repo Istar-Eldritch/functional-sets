@@ -1,0 +1,37 @@
+{
+  "name": "functional-sets",
+  "version": "1.0.0",
+  "description": "A implementation of mathematical Sets the functional way using CoffeeScript",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "gulp": "^3.8.10",
+    "chai": "^1.10.0",
+    "gulp-mocha": "^2.0.0",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "mocha": "^2.1.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Istar-Eldritch/functional-sets.git"
+  },
+  "keywords": [
+    "Functional",
+    "Sets",
+    "CoffeeScript"
+  ],
+  "author": "Istar-Eldritch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Istar-Eldritch/functional-sets/issues"
+  },
+  "homepage": "https://github.com/Istar-Eldritch/functional-sets"
+}
