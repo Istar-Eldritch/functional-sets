@@ -31,10 +31,14 @@ module.exports = class Set
     Creates a second set resulting from the union of the two sets implied.
     The union set matches elements from both sets.
   ###
-  union: (s) -> (x) -> @e(x) or ss.match(x)
+  union: (s) ->
+    f = @e
+    (x) -> f(x) or s.match(x)
 
   ###
     Creates a second set resulting from the intersection of the two sets implied.
     The new set matches elements that are members of both sets at same time.
   ###
-  intersect: (s) -> (x) -> @e(x) and s.match(x)
+  intersect: (s) ->
+    f = @e
+    (x) -> f(x) and s.match(x)
