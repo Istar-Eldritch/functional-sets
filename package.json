@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "A implementation of mathematical Sets the functional way using CoffeeScript",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "dependencies": {
     "gulp": "^3.8.10",
     "chai": "^1.10.0",
@@ -17,7 +14,7 @@
     "mocha": "^2.1.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
