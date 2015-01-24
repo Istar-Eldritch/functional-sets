@@ -5,33 +5,33 @@ Set = require '../src/Set'
 
 describe 'Set', ->
 
-	describe 'empty set', ->
-		set = new Set()
+  describe 'empty set', ->
+    set = new Set()
 
-		it 'should not have any member', ->
-			set.match(1).should.not.be.ok
+    it 'should not have any member', ->
+      set.match(1).should.not.be.ok
 
-	describe 'single element', ->
-		set = new Set(1)
+  describe 'single element', ->
+    set = new Set(1)
 
-		it 'should have 1 as member', ->
-			set.match(1).should.be.ok
+    it 'should have 1 as member', ->
+      set.match(1).should.be.ok
 
-		it 'should not have 0 as member', ->
-			set.match(0).should.not.be.ok
+    it 'should not have 0 as member', ->
+      set.match(0).should.not.be.ok
 
-	describe 'multiple elements', ->
+  describe 'multiple elements', ->
 
-		set = new Set(1,2)
+    set = new Set(1,2)
 
-		it 'should have 1 as member', ->
-			set.match(1).should.be.ok
+    it 'should have 1 as member', ->
+      set.match(1).should.be.ok
 
-		it 'should have 2 as member', ->
-			set.match(2).should.be.ok
+    it 'should have 2 as member', ->
+      set.match(2).should.be.ok
 
-		it 'should not have 3 as member', ->
-			set.match(3).should.not.be.ok
+    it 'should not have 3 as member', ->
+      set.match(3).should.not.be.ok
 
   describe 'union', ->
 
