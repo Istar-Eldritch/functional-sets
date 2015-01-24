@@ -14,25 +14,24 @@ module.exports = class Set
     a boolean if the set contains the element.
     (x):Boolean -> f(x)
   ###
-  constructor: (@e) ->
-    if not (@e instanceof Function)
-      @e = _.reduce arguments,(mem, elem) ->
+  constructor: (@match) ->
+    if not (@match instanceof Function)
+      @match = _.reduce arguments,(mem, elem) ->
         (x) -> mem(x,elem) or x is elem
        ,(x,e) -> x is e
 
   ###
+    @match
     This function checks if the element x is member of this set.
     TODO: Feature to allow this function to check for subsets.
   ###
-  match: (x) ->
-    @e(x)
 
   ###
     Creates a second set resulting from the union of the two sets implied.
     The union set matches elements from both sets.
   ###
   union: (s) ->
-    f = @e
+    f = @match
     (x) -> f(x) or s.match(x)
 
   ###
@@ -40,5 +39,17 @@ module.exports = class Set
     The new set matches elements that are members of both sets at same time.
   ###
   intersect: (s) ->
-    f = @e
+    f = @match
     (x) -> f(x) and s.match(x)
+
+  ###
+    Returns a set which step is the function given.
+    The parameter should be a function that calculates the next element given the
+    previous element. This is useful in predictable algorithms.
+  ###
+  step: (n) ->
+    f = @match
+    @next = (x) ->
+      r = n(x)
+      return if f(r) then r else undefined
+    return this

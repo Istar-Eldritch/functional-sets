@@ -1,5 +1,5 @@
 chai = require 'chai'
-chai.should()
+should = chai.should()
 expect = chai.expect
 Set = require '../src/Set'
 
@@ -63,3 +63,21 @@ describe 'Set', ->
 
     it 'should not contain elements from outside the intersection', ->
       s1.intersect(s2)(-11).should.not.be.ok
+
+  describe 'next', ->
+
+    s = new Set(1,2,3).step((x) => x + 1)
+
+    it 'should predict 2 from 1', ->
+      s.next(1).should.equal 2
+
+    it 'should return undefined at 3', ->
+      should.not.exist(s.next(3))
+
+  describe.skip 'map', ->
+
+    s = new Set('Red','Blue','Green')
+
+    it 'should map lower case colors after map', ->
+      s1 = s.map((x) -> x.toLowerCase())
+      s1.match('red').should.be.ok

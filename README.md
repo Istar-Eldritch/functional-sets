@@ -1,5 +1,6 @@
 # functional-sets
 A implementation of mathematical sets the functional way using CoffeeScript
+
 [![Build Status](https://drone.io/github.com/Istar-Eldritch/functional-sets/status.png)](https://drone.io/github.com/Istar-Eldritch/functional-sets/latest)
 
 ---
