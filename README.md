@@ -1,6 +1,6 @@
 # functional-sets
 A implementation of mathematical sets the functional way using CoffeeScript
-![Codeship CI](https://codeship.com/projects/58820/status?branch=master)
+![Codeship CI](https://codeship.com/projects/d409d640-85bc-0132-9d5b-76a8aba63565/status?branch=master)
 ---
 ### Extensional definition
 
