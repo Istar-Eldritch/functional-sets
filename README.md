@@ -4,6 +4,8 @@ A implementation of mathematical sets the functional way using CoffeeScript
 [![Build Status](https://drone.io/github.com/Istar-Eldritch/functional-sets/status.png)](https://drone.io/github.com/Istar-Eldritch/functional-sets/latest)
 
 ---
+## Creating sets.
+
 ### Extensional definition
 
 `The number one, two and three {1,2,3}`
@@ -41,6 +43,69 @@ var N = new Set(function(x){
 });
 ```
 
+---
+
+## Working with sets
+
+### Union
+
+The union of two sets returns a second set which elements are all the members that
+are contained in the sets involved in it's creation.
+
+CS:
+```
+odd = new Set (x) -> x % 2 != 0
+one = new Set 1
+u = odd.union one
+
+u.match 1 # this is true
+u.match 2 # this is true
+u.match 3 # this is false
+```
+
+JS:
+```
+var odd = new Set(function(x){
+  return x % 2 !== 0;
+});
+var one = new Set(1);
+var u = odd.union(one);
+
+u.match(1) # this is true
+u.match(2) # this is true
+u.match(3) # this is false
+```
+
+### Intersection
+
+The intersection return a set that holds as members the elements that are members
+of both involved in it's creation.
+
+CS:
+```
+odd = new Set (x) -> x % 2 != 0
+onetwo = new Set 1,2
+u = odd.intersect onetwo
+
+i.match 1 # this is true
+i.match 2 # this is true
+i.match 3 # this is false
+i.match 4 # this is false
+```
+
+JS:
+```
+var odd = new Set(function(x){
+  return x % 2 !== 0;
+  });
+var onetwo = new Set(1,2);
+var i = odd.intersect(onetwo);
+
+i.match(1) # this is true
+i.match(2) # this is true
+i.match(3) # this is false
+i.match(4) # this is false
+```
 ---
 Note that we are using numeric types here, but you can use whatever thing you want. Even
 complex objects. :bowtie:
