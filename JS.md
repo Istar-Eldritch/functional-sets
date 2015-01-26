@@ -11,6 +11,7 @@ A implementation of mathematical sets the functional way using CoffeeScript
 - [Working With Sets](#working-with-sets)
   - [Union](#union)
   - [Intersection](#intersection)
+  - [Disjoint](#disjoint)
   - [Chaining](#chaining)
 - [TODO](#todo)
 
@@ -80,6 +81,22 @@ i.match(2) // this is true
 i.match(3) // this is false
 i.match(4) // this is false
 ```
+
+### Disjoint
+The disjoint is a difference operator, [A - B] Returns a new set that contains
+all elements in a but not in B.
+
+```js
+var odd = new Set(function(x){
+  return x % 2 !== 0;
+});
+var two = new Set(2);
+var d = odd.disjoint(onetwo);
+
+d.match(4) // this is true
+d.match(2) // this is false
+```
+
 
 ### Chaining
 

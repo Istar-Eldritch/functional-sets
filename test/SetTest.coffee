@@ -79,6 +79,17 @@ describe 'Set', ->
       chain.match(1).should.not.be.ok
       chain.match(-1).should.not.be.ok
 
+  describe 'disjoint', ->
+    s1 = new Set (x) -> x >= -10
+    s2 = new Set (x) -> x < 0
+    s3 = s1.disjoint s2
+
+    it 'should contain elements from s1 not present in s2 (x >= 0)', ->
+      s3.match(0).should.be.ok
+    it 'should not contain elements in s2, not even related with s1', ->
+      s3.match(-1).should.not.be.ok
+      s3.match(-11).should.not.be.ok
+
   describe 'next', ->
 
     s = new Set(1,2,3).step((x) => x + 1)

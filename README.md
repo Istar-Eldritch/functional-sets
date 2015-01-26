@@ -11,6 +11,7 @@ A implementation of mathematical sets the functional way using CoffeeScript
 - [Working With Sets](#working-with-sets)
   - [Union](#union)
   - [Intersection](#intersection)
+  - [Disjoint](#disjoint)
   - [Chaining](#chaining)
 - [TODO](#todo)
 
@@ -66,12 +67,26 @@ of both involved in it's creation.
 ```coffee
 odd = new Set (x) -> x % 2 != 0
 onetwo = new Set 1,2
-u = odd.intersect onetwo
+i = odd.intersect onetwo
 
 i.match 1 # this is true
 i.match 2 # this is true
 i.match 3 # this is false
 i.match 4 # this is false
+```
+
+### Disjoint
+The disjoint is a difference operator, [A - B] Returns a new set that contains
+all elements in a but not in B.
+
+```coffee
+odd = new Set (x) -> x % 2 != 0
+two = new Set 2
+
+d = odd.disjoint two
+
+i.match 4 # this is true
+i.match 2 # this is false
 ```
 
 ### Chaining

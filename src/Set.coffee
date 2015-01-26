@@ -42,6 +42,15 @@ module.exports = class Set
     f = @match
     new Set (x) -> f(x) and s.match(x)
 
+
+  ###
+    Creates a second that contains all members in this set but not in the second
+    passed as argument
+  ###
+  disjoint: (s) ->
+    f = @match
+    new Set (x) -> f(x) and not s.match(x)
+
   ###
     Returns a set which step is the function given.
     The parameter should be a function that calculates the next element given the
