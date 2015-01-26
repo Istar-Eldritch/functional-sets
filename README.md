@@ -3,6 +3,14 @@ A implementation of mathematical sets the functional way using CoffeeScript
 
 [![Build Status](https://drone.io/github.com/Istar-Eldritch/functional-sets/status.png)](https://drone.io/github.com/Istar-Eldritch/functional-sets/latest)
 
+- [Creating Sets](#creating-sets)
+  - [Extensional definition](#extensional-definition)
+  - [Intensional definition](#intensional-definition)
+- [Working With Sets](#working-with-sets)
+  - [Union](#union)
+  - [Intersection](#intersection)
+  - [Chaining](#chaining)
+- [TODO](#todo)
 ---
 ## Creating sets.
 
@@ -71,9 +79,9 @@ var odd = new Set(function(x){
 var one = new Set(1);
 var u = odd.union(one);
 
-u.match(1) # this is true
-u.match(2) # this is true
-u.match(3) # this is false
+u.match(1) // this is true
+u.match(2) // this is true
+u.match(3) // this is false
 ```
 
 ### Intersection
@@ -101,11 +109,31 @@ var odd = new Set(function(x){
 var onetwo = new Set(1,2);
 var i = odd.intersect(onetwo);
 
-i.match(1) # this is true
-i.match(2) # this is true
-i.match(3) # this is false
-i.match(4) # this is false
+i.match(1) // this is true
+i.match(2) // this is true
+i.match(3) // this is false
+i.match(4) // this is false
 ```
+
+### Chaining
+
+Sets are intended as inmutable objects. That's the reason every funciton over sets
+returns a new set in response. This allows for easy chaining.
+
+```
+s = new Set(1).union(new Set(2)).intersect(new Set(3))
+```
+
+This is just an example, but you get the point.
+
 ---
 Note that we are using numeric types here, but you can use whatever thing you want. Even
 complex objects. :bowtie:
+
+---
+
+## TODO
+
+- Set mapping
+- Set limits
+- Other set operations. (disjoint, relative complement)
