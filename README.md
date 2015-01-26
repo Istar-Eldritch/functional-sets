@@ -11,6 +11,7 @@ A implementation of mathematical sets the functional way using CoffeeScript
   - [Intersection](#intersection)
   - [Chaining](#chaining)
 - [TODO](#todo)
+
 ---
 ## Creating sets.
 
