@@ -79,10 +79,10 @@ describe 'Set', ->
       chain.match(1).should.not.be.ok
       chain.match(-1).should.not.be.ok
 
-  describe 'disjoint', ->
+  describe 'complement', ->
     s1 = new Set (x) -> x >= -10
     s2 = new Set (x) -> x < 0
-    s3 = s1.disjoint s2
+    s3 = s1.complement s2
 
     it 'should contain elements from s1 not present in s2 (x >= 0)', ->
       s3.match(0).should.be.ok

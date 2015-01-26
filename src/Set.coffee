@@ -7,6 +7,7 @@ _ = require 'underscore'
 ###
 module.exports = class Set
 
+
   ###
     The constructor of a set takes an element that might be a whatever amount of
     literals.
@@ -47,7 +48,7 @@ module.exports = class Set
     Creates a second that contains all members in this set but not in the second
     passed as argument
   ###
-  disjoint: (s) ->
+  complement: (s) ->
     f = @match
     new Set (x) -> f(x) and not s.match(x)
 
@@ -62,3 +63,17 @@ module.exports = class Set
       r = n(x)
       return if f(r) then r else undefined
     return this
+
+  ###
+    DEFAULT SETS
+  ###
+
+  @EMPTY = new Set
+  @UNIVERSE = new Set (x) -> true
+
+  # Rational
+  @Q = new Set (x) -> Number(x) is x
+  # Integers
+  @Z = @Q.intersect new Set (x) -> x % 1 is 0
+  # Natural
+  @N = @Z.intersect new Set (x) -> x >= 0
