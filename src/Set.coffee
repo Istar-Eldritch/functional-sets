@@ -32,7 +32,7 @@ module.exports = class Set
   ###
   union: (s) ->
     f = @match
-    (x) -> f(x) or s.match(x)
+    new Set (x) -> f(x) or s.match(x)
 
   ###
     Creates a second set resulting from the intersection of the two sets implied.
@@ -40,7 +40,7 @@ module.exports = class Set
   ###
   intersect: (s) ->
     f = @match
-    (x) -> f(x) and s.match(x)
+    new Set (x) -> f(x) and s.match(x)
 
   ###
     Returns a set which step is the function given.

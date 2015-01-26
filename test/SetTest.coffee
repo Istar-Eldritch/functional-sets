@@ -37,32 +37,47 @@ describe 'Set', ->
 
     s1 = new Set((x) -> x > 0)
     s2 = new Set((x) -> x < 0)
+    s3 = s1.union s2
 
     c1 = new Set((x) -> 'A' < x.slice(0,1) < 'E')
     c2 = new Set((x) -> x is 'Ruben')
+    c3 = c1.union c2
 
     it 'should contain elements of both', ->
-      s1.union(s2)(1).should.be.ok
-      s1.union(s2)(-1).should.be.ok
+      s3.match(1).should.be.ok
+      s3.match(-1).should.be.ok
 
     it 'should contain element of both with strings', ->
-      c1.union(c2)('Bartolomeo').should.be.ok
-      c1.union(c2)('Ruben').should.be.ok
+      c3.match('Bartolomeo').should.be.ok
+      c3.match('Ruben').should.be.ok
 
     it 'does not contain elements from outside the set', ->
-      s1.union(s2)(0).should.not.be.ok
-      c1.union(c2)('Noe').should.not.be.ok
+      s3.match(0).should.not.be.ok
+      c3.match('Noe').should.not.be.ok
+
+    it 'chains', ->
+      chain = s1.union(s2).union(new Set(0))
+      chain.match(0).should.be.ok
+      chain.match(1).should.be.ok
+      chain.match(-1).should.be.ok
 
   describe 'intersect', ->
 
     s1 = new Set((x) -> x >= -10)
     s2 = new Set((x) -> x <= 10)
+    s3 = s1.intersect s2
 
     it 'should contain elements from the intersection', ->
-      s1.intersect(s1)(0).should.be.ok
+      s3.match(0).should.be.ok
 
     it 'should not contain elements from outside the intersection', ->
-      s1.intersect(s2)(-11).should.not.be.ok
+      s3.match(-11).should.not.be.ok
+
+    it 'chains', ->
+      chain = s1.intersect(s2).intersect(new Set(0))
+      chain.match(0).should.be.ok
+      chain.match(1).should.not.be.ok
+      chain.match(-1).should.not.be.ok
 
   describe 'next', ->
 
