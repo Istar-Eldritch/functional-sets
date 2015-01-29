@@ -4,10 +4,10 @@
   "description": "A implementation of mathematical Sets the functional way using CoffeeScript",
   "main": "index.js",
   "dependencies": {
-    "gulp": "^3.8.10",
     "chai": "^1.10.0",
+    "gulp": "^3.8.10",
     "gulp-mocha": "^2.0.0",
-    "underscore": "^1.7.0"
+    "lodash": "^3.0.0"
   },
   "devDependencies": {
     "coffee-script": "^1.8.0",
